@@ -12,3 +12,8 @@ redis_db = Redis(host=RedisConfig.HOST, port=RedisConfig.PORT, db=RedisConfig.DB
 # Habilitar CORS para todos los endpoints de la aplicación
 CORS(app)
 
+# Importar los blueprints y registrarlos en la aplicación
+from app.routes.users import users_bp
+
+app.register_blueprint(users_bp, url_prefix='/api')
+
