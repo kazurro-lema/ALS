@@ -64,7 +64,7 @@ def get(num, name):
             'status': 404,
             'message': 'Attendee not found'
         }
-        return jsonify(response), 200
+        return jsonify(response), 404
     
     response = {
         'status': 200,
