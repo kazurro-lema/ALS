@@ -1,0 +1,72 @@
+<div fxLayout="row" class="process-detail card-height-limit">
+  <div class="detail-container" fxLayout="column">
+    <div class="inside-container" cdkScrollable>
+      <div class="white-background" fxLayout="column">
+
+        <form [formGroup]="eventForm" (submit)="submit()">
+          <h2 mat-dialog-title>{{ 'COMPONENT.EVENT.TITLE.NEW_EVENT' | translate }}</h2>
+
+          <mat-dialog-content>
+            <mat-form-field appearance="fill">
+              <mat-label>{{ 'COMPONENT.EVENT.NAME' | translate }}</mat-label>
+              <input matInput placeholder="{{ 'COMPONENT.EVENT.NAME' | translate }}" formControlName="name" type="text" />
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+              <mat-label>{{ 'COMPONENT.EVENT.DESC' | translate }}</mat-label>
+              <textarea
+                matInput
+                placeholder="{{ 'COMPONENT.EVENT.DESC_PH' | translate }}"
+                formControlName="desc"
+                type="text"
+                rows="5"
+                noresize
+              ></textarea>
+            </mat-form-field>
+
+            <mat-grid-list cols="2" gutterSize="24px" rowHeight="100px">
+              <mat-grid-tile>
+                <mat-form-field appearance="fill">
+                  <mat-label>{{ 'COMPONENT.EVENT.DATE_INI' | translate }}</mat-label>
+                  <input
+                    matInput
+                    required
+                    formControlName="dateIni"
+                    [matDatepicker]="picker1"
+                  />
+                  <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                  <mat-datepicker #picker1></mat-datepicker>
+                </mat-form-field>
+              </mat-grid-tile>
+
+              <mat-grid-tile>
+                <mat-form-field appearance="fill">
+                  <mat-label>{{ 'COMPONENT.EVENT.DATE_END' | translate }}</mat-label>
+                  <input
+                    matInput
+                    required
+                    formControlName="dateEnd"
+                    [matDatepicker]="picker2"
+                  />
+                  <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+                  <mat-datepicker #picker2></mat-datepicker>
+                </mat-form-field>
+              </mat-grid-tile>
+            </mat-grid-list>
+          </mat-dialog-content>
+
+          <mat-form-field appearance="fill">
+            <mat-label>{{ 'COMPONENT.EVENT.LOCATION' | translate }}</mat-label>
+            <input matInput placeholder="{{ 'COMPONENT.EVENT.LOCATION' | translate }}" formControlName="location" type="text" />
+          </mat-form-field>
+
+          <mat-dialog-actions fxLayoutAlign="end center">
+            <button mat-stroked-button color="primary" type="submit" [disabled]="!eventForm.valid">
+              {{ 'COMPONENT.COMMON.SAVE' | translate }}
+            </button>
+          </mat-dialog-actions>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

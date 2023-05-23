@@ -1,0 +1,147 @@
+@import '../../../../css/variables.scss';
+
+.mobile-theme {
+  height: 100vh;
+  background: #ffffff;
+
+  .sidenav-panel {
+    overflow: auto;
+  }
+
+  .sidenav-header {
+    height: 64px;
+    width: 100%;
+    margin-bottom: 2px;
+    box-shadow: 0px 2px 0 0 rgba(0, 0, 0, 0.12);
+    background: #ffffff;
+
+    button {
+      width: calc(100% - 24px);
+      padding: 0 24px;
+      color: black;
+    }
+  }
+
+  button {
+    display: block;
+    height: 64px;
+    width: calc(100% - 24px);
+    padding: 0 28px;
+    background: #ffffff;
+    color: var(--primary-500);
+    font-size: 17px;
+    text-align: left;
+    line-height: 60px;
+    border: 0;
+
+    mat-icon {
+      margin-top: auto;
+      vertical-align: middle;
+    }
+
+    span {
+      margin-left: 24px;
+      color: rgba(0, 0, 0, 0.87);
+      font-family: 'Helvetica Neue', sans-serif !important;
+      line-height: 24px
+    }
+
+    &:hover {
+      background: #ffffff;
+    }
+
+    &:focus {
+      background: #ffffff;
+    }
+  }
+
+}
+
+.desktop-theme {
+  height: 100vh;
+
+  .sidenav-panel {
+    overflow-y: auto;
+    overflow-x: hidden;
+    scrollbar-width: none;
+    background: linear-gradient(90deg, var(--primary-500) #{$width-sidenav-collapsed}, #ffffff #{$width-sidenav-collapsed});
+
+    .top-items,.bottom-items{
+      width: 100%;
+    }
+  }
+
+  button {
+    height: $height-sidenav-item;
+    width: 100%;
+    padding: 0;
+
+    background: none;
+    color: rgba(0, 0, 0, 0.87);
+
+    border-radius: 0;
+    border: 0;
+    cursor: pointer;
+
+    .menu-collapsed {
+      height: 100%;
+      width: $width-sidenav-collapsed;
+
+      display: flex;
+      text-align: center;
+      align-items: center;
+      justify-content: center;
+
+      mat-icon {
+        vertical-align: middle;
+        color: #ffffff;
+      }
+    }
+
+    .menu-expanded {
+      height: 100%;
+      width: calc(#{$width-sidenav-expanded} - #{$width-sidenav-collapsed});
+
+      background-color: #ffffff;
+      vertical-align: middle;
+      text-align: left;
+
+      &.logout-label {
+
+        display: flex;
+        align-items: center;
+
+        span {
+          margin-left: 24px;
+
+          font-family: 'Helvetica Neue', sans-serif !important;
+          font-size: 16px;
+        }
+      }
+
+      mat-icon {
+        pointer-events: none;
+      }
+    }
+  }
+
+  .logout-item {
+    &:hover {
+
+      .menu-collapsed {
+        background: rgba(255, 255, 255, 0.06);
+      }
+
+      .menu-expanded {
+        background: var(--primary-500-5);
+      }
+
+    }
+  }
+}
+
+sidenav-item {
+  height: 64px;
+  width: 100%;
+  display: block;
+}

@@ -1,0 +1,44 @@
+<div
+  class="event-card"
+  fxLayout="row"
+  fxLayoutAlign="center center"
+>
+  <div class="card-icon">
+    <mat-icon class="material-icons-outlined">{{ "event" }}</mat-icon>
+  </div>
+
+  <div class="event-info" fxFlexAlign="center">
+    <div class="event-process">
+      <div class="event-process-name">
+        <span>{{ event.name | translate }}</span>
+      </div>
+      <div class="event-author">
+        <span>
+          &nbsp;| {{ "COMPONENT.EVENT.AUTHOR" | translate }}:
+          <span>{{ event.author }}</span>
+        </span>
+      </div>
+    </div>
+    <div>
+      <div class="event-name-info">
+        <div class="event-name">
+          <span> {{ event.description }} </span>
+        </div>
+      </div>
+      <div class="event-time-info" *showOnlyOnDesktop>
+        <span>
+          {{ "COMPONENT.EVENT.DATE_INI" | translate }}:
+          <span>{{ event.startDate | date : "shortDate" }}</span>
+          {{ "COMPONENT.EVENT.DATE_END" | translate }}:
+          <span>{{ event.endDate | date : "shortDate" }}</span>
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <div class="event-actions" fxFlex="noshrink" fxFlexAlign="center">
+    <div class="event-actions-content">
+      <ng-content></ng-content>
+    </div>
+  </div>
+</div>

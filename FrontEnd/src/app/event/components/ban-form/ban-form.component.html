@@ -1,0 +1,32 @@
+<div fxLayout="row" class="process-detail">
+  <div class="detail-container" fxLayout="column">
+    <div class="inside-container" cdkScrollable>
+      <div class="white-background" fxLayout="column">
+
+        <form [formGroup]="banForm" (submit)="submit()">
+          <h2 mat-dialog-title>{{ 'COMPONENT.EVENT.TITLE.BAN_EVENT' | translate }}</h2>
+
+          <mat-dialog-content>
+            <mat-form-field appearance="fill">
+              <mat-label>{{ 'COMPONENT.EVENT.BAN_DESC' | translate }}</mat-label>
+              <textarea
+                matInput
+                placeholder="{{ 'COMPONENT.EVENT.BAN_DESC_PH' | translate }}"
+                formControlName="ban_desc"
+                type="text"
+                rows="5"
+                noresize
+              ></textarea>
+            </mat-form-field>
+          </mat-dialog-content>
+
+          <mat-dialog-actions fxLayoutAlign="end center">
+            <button mat-stroked-button color="primary" type="submit" [disabled]="!banForm.valid">
+              {{ 'COMPONENT.COMMON.BAN' | translate }}
+            </button>
+          </mat-dialog-actions>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,18 @@
+<nav mat-tab-nav-bar #tabsHeader>
+  <a
+    mat-tab-link
+    *ngFor="let link of tabs"
+    [routerLink]="link.url"
+    [queryParams]="{}"
+    routerLinkActive
+    #rla="routerLinkActive"
+    [active]="rla.isActive"
+    [ngClass]="{ activeTab: rla.isActive }"
+    matTooltip="{{ link.label | translate }}"
+  >
+    <mat-icon [ngClass]="link.icon.class" *ngIf="link.icon?.label">{{ link.icon.label }}</mat-icon>
+    <span *showOnlyOnDesktop class="tab-label">{{ link.label | translate }}</span>
+  </a>
+</nav>
+
+<router-outlet></router-outlet>

@@ -1,0 +1,27 @@
+<div *ngIf="users" class="user-list {{ classResolution }}">
+  <div *ngIf="users" class="userContainer">
+    <div
+      class="custom-card-container btnOpenUserDetails"
+      *ngFor="let user of users; let index = index"
+      [ngClass]="{ selected: showHoverEffect(index) }"
+      (click)="openUserDetails(user)"
+    >
+      <user-card
+        [user]="user"
+        (mouseenter)="hoveredIndex = index"
+        (mouseleave)="hoveredIndex = null"
+      >
+        <div fxFlexAlign="center">
+          <!--<user-actions
+            fxLayout="row"
+            fxLayoutAlign="end center"
+            [user]="user"
+            (menuOpened)="menuOpenedIndex = index"
+            (menuClosed)="menuOpenedIndex = null"
+            (userRemoved)="deleteUser()">
+          </user-actions>-->
+        </div>
+      </user-card>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,22 @@
+<div class="sidenav-item" [ngClass]="classResolution" routerLinkActive="active-router">
+  <button
+    [routerLink]="getRouterLink(item.url)"
+    routerLinkActive="active-router"
+    id="button_sidenav_{{ item.id }}"
+    (click)="toggleSidenav()"
+  >
+    <div style="height: 100%" fxFlex fxLayout="row">
+      <div class="item-collapsed" (mouseenter)="itemTooltip.show()" (mouseleave)="itemTooltip.hide()">
+        <mat-icon
+          #itemTooltip="matTooltip"
+          [matTooltip]="item.label | translate "
+          matTooltipClass="sidenav-custom-tooltip"
+          >{{ item.icon.label }}</mat-icon
+        >
+      </div>
+      <div class="item-expanded">
+        <span class="item-label" routerLinkActive="active-router">{{ item.label | translate }}</span>
+      </div>
+    </div>
+  </button>
+</div>

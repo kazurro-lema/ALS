@@ -1,0 +1,63 @@
+@import '../../css/variables.scss';
+@import '../../css/main.scss';
+
+mat-sidenav-container {
+  height: 100vh;
+}
+
+.content-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  padding: 24px;
+
+  h2 {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 50px;
+  }
+}
+.button{
+   // border-color: "#FF0000";//var($border-color);
+    border-width: 1px;
+    border-color: $border-color;
+    border-radius: 5px;
+    border-style: solid;
+    padding: 5px;
+    color: $border-color;
+    margin-inline: 5px;
+
+   
+
+    span {
+        cursor: pointer;
+  
+        &:hover{
+          color: var(--primary-500);
+        }
+      }
+}
+.goRegister-container{
+  flex-direction: row;
+  display: flex;
+  padding-bottom: 22px;
+
+  mat-label:first-child{
+    white-space: pre;
+  }
+
+  mat-label:last-child{
+    display: flex;
+    place-content: center flex-end;
+    width: 100%;
+
+    span {
+      cursor: pointer;
+
+      &:hover{
+        color: var(--primary-500);
+      }
+    }
+  }
+}

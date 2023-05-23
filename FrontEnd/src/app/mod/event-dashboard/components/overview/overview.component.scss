@@ -1,0 +1,49 @@
+@import '../../../../../css/variables.scss';
+
+.card-container {
+  box-shadow: 0 0 0 var(--primary-500-contrast);
+  margin: 0px;
+  padding: 0px;
+}
+
+.desktop-theme {
+
+  title {
+    display: block;
+
+    h3 {
+      font-size: 20px;
+      border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+      padding: 15px;
+      margin: 0;
+      font-weight: normal;
+      color: var(--primary-500);
+    }
+
+  }
+  .event-overview {
+    height: calc(100vh - #{$main-toolbar-height} - #{$main-toolbar-height} - #{$card-margin} - 48px);
+    border-radius: 0 0 5px 5px;
+    box-shadow: 0 0 9px 0 rgba(0, 0, 0, 0.13);
+    background-color: #ffffff;
+  }
+}
+
+.mobile-theme {
+
+  .card-container {
+    max-height: calc(100vh - #{$main-toolbar-height});
+  }
+
+  .mobile-title {
+    padding: 0 5px;
+    h3 {
+      font-size: 20px;
+      border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+      padding: 15px;
+      margin: 0;
+      font-weight: normal;
+      color: var(--primary-500);
+    }
+  }
+}

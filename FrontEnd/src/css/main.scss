@@ -1,0 +1,280 @@
+@import './default-theme.scss';
+@import './google-fonts-roboto.scss';
+@import './variables.scss';
+@import './material-theme.scss';
+
+:root {
+  --primary-50: #0099f9;
+  --primary-100: #008ae0;
+  --primary-200: #007ac6;
+  --primary-300: #006aad;
+  --primary-400: #005b93;
+  --primary-500: #004b7a;
+  --primary-600: #003b60;
+  --primary-700: #002c47;
+  --primary-800: #001c2d;
+  --primary-900: #000c14;
+  --primary-A100: #14a4ff;
+  --primary-A200: #2daeff;
+  --primary-A400: #47b8ff;
+  --primary-A700: #000000;
+  --primary-50-contrast: $black-87-opacity;
+  --primary-100-contrast: $black-87-opacity;
+  --primary-200-contrast: $black-87-opacity;
+  --primary-300-contrast: $black-87-opacity;
+  --primary-400-contrast: $black-87-opacity;
+  --primary-500-contrast: white;
+  --primary-600-contrast: white;
+  --primary-700-contrast: white;
+  --primary-800-contrast: $white-87-opacity;
+  --primary-900-contrast: $white-87-opacity;
+  --primary-A100-contrast: $black-87-opacity;
+  --primary-A200-contrast: white;
+  --primary-A400-contrast: white;
+  --primary-A700-contrast: white;
+  --min-width: 1px;
+}
+
+$bicm-blue: (
+  50: var(--primary-50),
+  100: var(--primary-100),
+  200: var(--primary-200),
+  300: var(--primary-300),
+  400: var(--primary-400),
+  500: var(--primary-500),
+  600: var(--primary-600),
+  700: var(--primary-700),
+  800: var(--primary-800),
+  900: var(--primary-900),
+  A100: var(--primary-A100),
+  A200: var(--primary-A200),
+  A400: var(--primary-A400),
+  A700: var(--primary-A700),
+  contrast: (
+    50: var(--primary-50-contrast),
+    100: var(--primary-100-contrast),
+    200: var(--primary-200-contrast),
+    300: var(--primary-300-contrast),
+    400: var(--primary-400-contrast),
+    500: var(--primary-500-contrast),
+    600: var(--primary-600-contrast),
+    700: var(--primary-700-contrast),
+    800: var(--primary-800-contrast),
+    900: var(--primary-900-contrast),
+    A100: var(--primary-A100-contrast),
+    A200: var(--primary-A200-contrast),
+    A400: var(--primary-A400-contrast),
+    A700: var(--primary-A700-contrast)
+  )
+);
+
+
+// Cosas Generales
+
+body,
+div,
+html {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+body,
+html {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+
+  app-main {
+    background: #efefef;
+  }
+}
+
+*,
+*:after,
+*:before {
+  box-sizing: border-box;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  font-family: Roboto, 'Helvetica Neue', sans-serif;
+}
+
+button:hover {
+  background-color: var(--primary-300);
+}
+
+// Main
+
+.content-container {
+  &.desktop-theme {
+    height: calc(100vh - #{$main-toolbar-height} - #{$card-margin});
+    margin: 24px;
+  }
+
+  &.mobile-theme {
+    height: calc(100vh - #{$main-toolbar-height});
+    overflow: overlay;
+  }
+}
+
+.card-container {
+  margin: 10px 0px;
+  max-height: calc(100vh - #{$main-toolbar-height} + #{$card-margin});
+  overflow-y: overlay;
+  overflow-x: hidden;
+  box-shadow: 0 0 9px 0 rgba(0, 0, 0, 0.13);
+  background: transparent !important;
+}
+
+.card-content {
+  padding: 15px 5px;
+  background-color: white;
+}
+
+.card-content-header {
+  font-weight: bold;
+  align-items: center;
+  height: 40px;
+  white-space: nowrap;
+  display: flex;
+}
+
+// Contenedores de las Cards (Detalles, Form, Etc)
+
+.card-height-limit {
+  height: calc(100vh - #{$main-toolbar-height} - #{$card-margin});
+
+  &.desktop-theme {
+    height: calc(100vh - #{$main-toolbar-height} - #{$card-margin});
+  }
+
+  &.mobile-theme {
+    height: calc(100vh - #{$main-toolbar-height});
+  }
+}
+
+.white-background {
+  background-color: white;
+  padding: 16px;
+  border-radius: 5px;
+  height: 100%;
+  overflow: overlay;
+}
+
+.detail-container {
+  width: 100%;
+  box-shadow: 0 0 9px 0 rgba(0, 0, 0, 0.13);
+}
+
+.desktop-theme {
+  .inside-container {
+    height: 100%;
+  }
+}
+
+.mobile-theme {
+  .inside-container {
+    padding: 0;
+    margin: 0;
+  }
+
+  .white-background {
+    height: calc(100vh - #{$header_app_height_mobile});
+    padding: 16px;
+  }
+}
+
+// Varios
+
+button.mat-raised-button {
+  background-color: var(--primary-500);
+  color: white;
+
+  &.basic {
+    background-color: white;
+    color: black;
+  }
+}
+
+.mat-sidenav {
+  background-color: var(--primary-500) !important;
+  border-right: 1px solid $border-color;
+
+  &.custom-sidenav {
+    border-right: 0;
+  }
+}
+
+[hidden] {
+  display: none !important;
+}
+
+button.mat-stroked-button {
+  height: 35px;
+  line-height: 27px;
+  border: 2px solid !important;
+  font-weight: 600 !important;
+  font-family: 'Roboto-Bold', 'Helvetica Neue', sans-serif !important;
+  text-transform: uppercase;
+
+  .mat-button-wrapper span {
+    text-transform: uppercase;
+    font-family: 'Roboto-Bold', 'Helvetica Neue', sans-serif;
+    font-size: 14px;
+  }
+}
+
+.desktop-theme {
+
+  button.menu-actions {
+    span.mat-button-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+}
+
+.mat-mdc-form-field {
+  min-width: 100% !important;
+
+  .mat-form-field-wrapper {
+    .mat-form-field-underline {
+      position: static;
+    }
+
+    .mat-form-field-subscript-wrapper {
+      position: static;
+    }
+  }
+}
+
+// ScrollBars
+
+::-webkit-scrollbar {
+  width: 18px;
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  -webkit-box-shadow: none;
+  background: rgba(0, 0, 0, 0.06);
+  border: 6px solid transparent;
+  border-radius: 16px;
+  background-clip: padding-box;
+}
+
+* {
+  scrollbar-color: rgba(0, 0, 0, 0.06) transparent;
+  scrollbar-width: thin;
+}

@@ -1,0 +1,46 @@
+<div class="shadow-wrapper"></div>
+<mat-sidenav-container autosize>
+
+  <mat-sidenav-content fxLayout="row">
+    <div fxLayout="column" fxFlexFill>
+      <app-header></app-header>
+      <div class="content-container">
+
+        <form [formGroup]="loginForm" (ngSubmit)="submit()" *ngIf="loginForm">
+          <div class="form-container">
+            <mat-dialog-content>
+
+              <h2 mat-dialog-title>{{ 'COMPONENT.USER.OPTIONS.LOGIN' | translate }}</h2>
+
+              <mat-form-field appearance="fill">
+                <mat-label>{{ 'COMPONENT.USER.USERNAME' | translate }}</mat-label>
+                <input matInput placeholder="{{ 'COMPONENT.USER.USERNAME' | translate }}" formControlName="username" type="text" />
+              </mat-form-field>
+
+              <mat-form-field appearance="fill">
+                <mat-label>{{ 'COMPONENT.USER.PASSWORD' | translate }}</mat-label>
+                <input matInput placeholder="{{ 'COMPONENT.USER.PASSWORD' | translate }}" formControlName="password" type="password" />
+              </mat-form-field>
+
+              <div class="rememberAndRegister-container">
+                <mat-label>{{ 'COMPONENT.USER.REMEMBERME' | translate }}</mat-label>
+                <mat-checkbox formControlName="rememberMe"></mat-checkbox>
+                <div class="goRegister-container">
+                <mat-label><span routerLink="/register">{{ 'COMPONENT.USER.REGISTER' | translate }}</span></mat-label>
+
+                </div>
+              </div>
+
+              <mat-dialog-actions fxLayoutAlign="end center">
+                <button mat-stroked-button color="primary" type="submit" [disabled]="!loginForm.valid">
+                  {{ 'COMPONENT.COMMON.BUTTON.LOGIN' | translate }}
+                </button>
+              </mat-dialog-actions>
+            </mat-dialog-content>
+          </div>
+        </form>
+
+      </div>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

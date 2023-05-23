@@ -1,0 +1,15 @@
+<div [ngClass]="classResolution">
+  <title
+    [eventCount]="eventsCount"
+    [textTitle]="'COMPONENT.EVENT.OVERVIEW'"
+  ></title>
+  <div fxLayout="row" class="event-overview">
+    <div class="card-container card-content" fxFlexFill>
+      <event-list
+        [events]="events"
+        [eventsCount]="eventsCount"
+        (eventRemoved)="deleteEvent()">
+      </event-list>
+    </div>
+  </div>
+</div>

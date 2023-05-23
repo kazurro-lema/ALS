@@ -1,0 +1,46 @@
+<div class="shadow-wrapper"></div>
+<mat-sidenav-container autosize>
+
+  <mat-sidenav-content fxLayout="row">
+    <div fxLayout="column" fxFlexFill>
+      <app-header></app-header>
+      <div class="content-container">
+
+        <form [formGroup]="registerForm" (ngSubmit)="submit()" *ngIf="registerForm">
+          <div class="form-container">
+            <mat-dialog-content>
+
+              <h2 mat-dialog-title>{{ 'COMPONENT.USER.OPTIONS.REGISTER' | translate }}</h2>
+
+              <mat-form-field appearance="fill">
+                <mat-label>{{ 'COMPONENT.USER.USERNAME' | translate }}</mat-label>
+                <input matInput placeholder="{{ 'COMPONENT.USER.USERNAME' | translate }}" formControlName="username" type="text" />
+              </mat-form-field>
+
+              <mat-form-field appearance="fill">
+                <mat-label>{{ 'COMPONENT.USER.EMAIL' | translate }}</mat-label>
+                <input matInput placeholder="{{ 'COMPONENT.USER.EMAIL' | translate }}" formControlName="email" type="text" />
+              </mat-form-field>
+
+              <mat-form-field appearance="fill">
+                <mat-label>{{ 'COMPONENT.USER.PASSWORD' | translate }}</mat-label>
+                <input matInput placeholder="{{ 'COMPONENT.USER.PASSWORD' | translate }}" formControlName="password" type="password" />
+              </mat-form-field>
+
+              <div class="goLogin-container">
+                <mat-label><span routerLink="/login">{{ 'COMPONENT.USER.LOGIN' | translate }}</span></mat-label>
+              </div>
+
+              <mat-dialog-actions fxLayoutAlign="end center">
+                <button mat-stroked-button color="primary" type="submit" [disabled]="!registerForm.valid">
+                  {{ 'COMPONENT.COMMON.BUTTON.REGISTER' | translate }}
+                </button>
+              </mat-dialog-actions>
+            </mat-dialog-content>
+          </div>
+        </form>
+
+      </div>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

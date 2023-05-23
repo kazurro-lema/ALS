@@ -1,0 +1,32 @@
+<div class="user-card" fxLayout="row" fxLayoutAlign="center center">
+  <div class="card-icon">
+    <mat-icon class="material-icons-outlined">{{ "person" }}</mat-icon>
+  </div>
+
+  <div class="user-info" fxFlexAlign="center">
+    <div class="user-process">
+      <div class="user-process-name">
+        <span>{{ user.name }}</span>
+      </div>
+    </div>
+    <div>
+      <div class="user-email">
+        <span>{{ user.email }}</span>
+      </div>
+    </div>
+    <div>
+      <div class="user-role-info">
+        <div class="role">
+          {{ "COMPONENT.EVENT.ROLE" | translate }}:
+          <span> {{ user.role }} </span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="event-actions" fxFlex="noshrink" fxFlexAlign="center">
+    <div class="event-actions-content">
+      <ng-content></ng-content>
+    </div>
+  </div>
+</div>

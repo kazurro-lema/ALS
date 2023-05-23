@@ -1,0 +1,27 @@
+<div *ngIf="events" class="event-list {{ classResolution }}">
+  <div *ngIf="events" class="eventContainer">
+    <div
+      class="custom-card-container btnOpenEventDetails"
+      *ngFor="let event of events; let index = index"
+      [ngClass]="{ selected: showHoverEffect(index), banned: event.banned }"
+      (click)="openEventDetails(event)"
+    >
+      <event-card
+        [event]="event"
+        (mouseenter)="hoveredIndex = index"
+        (mouseleave)="hoveredIndex = null"
+      >
+        <div fxFlexAlign="center">
+          <event-actions
+            fxLayout="row"
+            fxLayoutAlign="end center"
+            [event]="event"
+            (menuOpened)="menuOpenedIndex = index"
+            (menuClosed)="menuOpenedIndex = null"
+            (eventRemoved)="deleteEvent()">
+          </event-actions>
+        </div>
+      </event-card>
+    </div>
+  </div>
+</div>

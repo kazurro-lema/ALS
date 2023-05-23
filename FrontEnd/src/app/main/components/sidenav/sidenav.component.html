@@ -1,0 +1,94 @@
+<div [ngClass]="classResolution">
+  <div [ngClass]="classResolution" class="shadow-wrapper"></div>
+  <div
+    class="sidenav-panel"
+    [ngClass]="{ collapsed: !isExpanded, expanded: isExpanded }"
+    [@collapseExpandMenu]="
+      isExpanded || classResolution === 'mobile-theme'
+        ? 'expanded'
+        : 'collapsed'
+    "
+    (@collapseExpandMenu.start)="animationStart()"
+    (@collapseExpandMenu.done)="animationDone()"
+    fxFlex
+    fxLayout="column"
+    fxLayoutAlign="space-between start"
+  >
+    <div class="top-items">
+      <div class="sidenav-header" *showOnlyOnMobile>
+        <button
+          mat-button
+          (click)="toggleSideNav()"
+          (keyup.enter)="toggleSideNav()"
+        >
+          <mat-icon>close</mat-icon>
+          <span>{{ "COMPONENT.COMMON.BUTTON.MENU" | translate }}</span>
+        </button>
+      </div>
+      <button (click)="toggleSideNav()" *showOnlyOnDesktop>
+        <div style="height: 100%" fxFlex fxLayout="row">
+          <div
+            class="menu-collapsed"
+            (mouseover)="menuTooltip.show()"
+            (mouseout)="menuTooltip.hide()"
+          >
+            <mat-icon
+              #menuTooltip="matTooltip"
+              [matTooltip]="
+                (isExpanded
+                  ? 'COMPONENT.SIDENAV.COLLAPSE'
+                  : 'COMPONENT.SIDENAV.EXPAND'
+                 ) | translate
+              "
+              matTooltipClass="sidenav-custom-tooltip"
+              >menu</mat-icon
+            >
+          </div>
+        </div>
+      </button>
+      <div class="sidenav-item" *ngFor="let item of menu.top">
+        <div fxFlex fxLayout="row" style="width: 100%" *ngIf="canBeShown(item.auth_level)">
+          <sidenav-item
+            [item]="item"
+            [isSidenavExpanded]="isExpanded"
+            [classResolution]="classResolution"
+            (toggle)="toggleSideNav()"
+          ></sidenav-item>
+        </div>
+      </div>
+    </div>
+    <div class="bottom-items">
+      <div class="sidenav-item" *ngFor="let item of menu.bottom">
+        <div *ngIf="canBeShown(item.auth_level)">
+          <sidenav-item
+            [item]="item"
+            [isSidenavExpanded]="isExpanded"
+            [classResolution]="classResolution"
+            (toggle)="toggleSideNav()"
+          ></sidenav-item>
+        </div>
+      </div>
+
+      <button button (click)="logout()">
+        <div style="height: 100%" fxFlex fxLayout="row" class="logout-item">
+          <div
+            class="menu-collapsed"
+            (mouseover)="logoutTooltip.show()"
+            (mouseout)="logoutTooltip.hide()"
+          >
+            <mat-icon
+              #logoutTooltip="matTooltip"
+              [matTooltip]="'COMPONENT.COMMON.BUTTON.LOGOUT' | translate"
+              matTooltipClass="sidenav-custom-tooltip"
+            >
+              power_settings_new
+            </mat-icon>
+          </div>
+          <div class="menu-expanded logout-label">
+            <span>{{ "COMPONENT.COMMON.BUTTON.LOGOUT" | translate }}</span>
+          </div>
+        </div>
+      </button>
+    </div>
+  </div>
+</div>

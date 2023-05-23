@@ -1,0 +1,15 @@
+<div class="dashboard" [ngClass]="classResolution">
+  <div
+    class="flex-container desktop-theme"
+    fxLayout="row"
+    fxLayoutAlign="center flex-start"
+    fxLayoutGap="20px"
+  >
+    <overview
+      fxFlex="100"
+      [events]="events"
+      [eventsCount]="eventsCount"
+      (eventRemoved)="getEventDashboard()"
+    ></overview>
+  </div>
+</div>

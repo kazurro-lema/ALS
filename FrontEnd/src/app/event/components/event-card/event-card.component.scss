@@ -1,0 +1,85 @@
+.event-card {
+  position: relative;
+  padding: 13px 16px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+
+  .card-icon{
+    display: flex;
+    height: 40px;
+    width: 40px;
+    color: #fff;
+    border-radius: 50px;
+    background: var(--primary-500);
+
+    mat-icon {
+      width: 40px;
+      height: 40px;
+      font-size: 25px;
+      padding: 7.5px;
+    }
+  }
+
+  .event-info {
+    margin: 0 18px;
+    white-space: nowrap;
+    overflow: hidden;
+
+    .event-process {
+      display: flex;
+      white-space: nowrap;
+    }
+
+    .event-process-name {
+      text-overflow: ellipsis;
+      overflow: hidden;
+
+      span{
+        font-family: Roboto, 'Helvetica Neue', sans-serif;
+        font-weight: normal;
+        font-size: 16px;
+        letter-spacing: 0.15px;
+        line-height: normal;
+        color: rgba(0, 0, 0, 0.87);
+      }
+    }
+
+    .event-name-info {
+      display: flex;
+      white-space: nowrap;
+    }
+
+    .event-name {
+      text-overflow: ellipsis;
+      overflow: hidden;
+
+      span {
+        font-family: Roboto, 'Helvetica Neue', sans-serif;
+        font-weight: normal;
+        font-size: 14px;
+        letter-spacing: 0.25px;
+        color: rgba(0, 0, 0, 0.6);
+      }
+    }
+
+    .event-id {
+      span {
+        font-family: Roboto, 'Helvetica Neue', sans-serif;
+        font-size: 14px;
+        font-weight: normal;
+        letter-spacing: 0.25px;
+        color: rgba(0, 0, 0, 0.6);
+      }
+    }
+
+    .event-time-info {
+      span {
+        font-family: Roboto, 'Helvetica Neue', sans-serif;
+        font-size: 14px;
+        font-weight: normal;
+        letter-spacing: 0.25px;
+        color: rgba(0, 0, 0, 0.6);
+        text-align: left;
+      }
+    }
+  }
+}

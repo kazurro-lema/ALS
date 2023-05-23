@@ -1,0 +1,32 @@
+<mat-toolbar class="custom-toolbar" [ngClass]="classResolution">
+  <div>
+    <button
+      class="toolbar-menu"
+      mat-icon-button
+      [attr.aria-label]="'COMPONENT.COMMON.BUTTON.MENU_VISIBILITY'"
+      (click)="toggleSideNav()"
+      matTooltip="{{ 'COMPONENT.COMMON.BUTTON.MENU_VISIBILITY' | translate }}"
+      *ngIf="classResolution === device.mobile"
+    >
+      <mat-icon>menu</mat-icon>
+    </button>
+  </div>
+
+<div class="toggle-language">
+    <span
+    matTooltip="{{ 'COMPONENT.HEADER.EN_LANG' | translate }}"
+    [ngClass]="{ active: this.language === 'en' }"
+    >EN</span
+  >
+
+  <button class="mat-icon-button" id="toggleLang" (click)="changeLang()">
+    <mat-icon class="material-icons">sync_alt</mat-icon>
+  </button>
+
+  <span
+    matTooltip="{{ 'COMPONENT.HEADER.ES_LANG' | translate }}"
+    [ngClass]="{ active: this.language === 'es' }"
+    >ES</span
+  >
+  </div>
+</mat-toolbar>

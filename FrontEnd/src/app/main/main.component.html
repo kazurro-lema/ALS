@@ -1,0 +1,29 @@
+<div [ngClass]="classResolution" class="shadow-wrapper"></div>
+<mat-sidenav-container autosize [ngClass]="classResolution">
+  <mat-sidenav
+    [fixedInViewport]="isMobile"
+    [mode]="isMobile ? 'over' : 'side'"
+    id="sidenavMain"
+    #navigation
+    [opened]="!isMobile"
+    class="custom-sidenav"
+    [ngClass]="classResolution"
+    [ngClass]="{ expanded: isExpanded }"
+  >
+    <sidenav
+      (toggleSidenav)="toggleSidenav()"
+      [classResolution]="classResolution"
+    ></sidenav>
+  </mat-sidenav>
+
+  <mat-sidenav-content fxLayout="row">
+    <div fxLayout="column" fxFlexFill>
+      <app-header
+      (toggleSidenav)="toggleSidenav()"
+      ></app-header>
+      <div class="content-container" [ngClass]="classResolution">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

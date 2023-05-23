@@ -1,0 +1,56 @@
+<button
+  class="btnOpenActions {{ classResolution }} menu-actions"
+  mat-icon-button
+  [matMenuTriggerFor]="userEvent"
+  (menuOpened)="menuOpen()"
+  (menuClosed)="menuClose()"
+  queryParamsHandling="preserve"
+  [matTooltip]="'COMPONENT.COMMON.OPTIONS.ACTIONSMENU' | translate"
+  [attr.aria-label]="'COMPONENT.COMMON.OPTIONS.ACTIONSMENU' | translate"
+  (click)="preventPropagation($event)"
+>
+  <mat-icon>more_vert</mat-icon>
+</button>
+
+<mat-menu #userEvent="matMenu">
+  <button
+    mat-menu-item
+    [routerLink]="['../event/details']"
+    [queryParams]="{ eventId: event.id }"
+    queryParamsHandling="merge"
+    [attr.aria-label]="'COMPONENT.COMMON.OPTIONS.DETAILS' | translate"
+  >
+    <mat-icon class="material-icons-outlined">info</mat-icon>
+    <span>{{ "COMPONENT.COMMON.OPTIONS.DETAILS" | translate }}</span>
+  </button>
+  <button
+    mat-menu-item
+    [routerLink]="['../event/inscription']"
+    [queryParams]="{ eventId: event.id }"
+    queryParamsHandling="merge"
+    [attr.aria-label]="'COMPONENT.COMMON.OPTIONS.INSCRIPT' | translate"
+  >
+    <mat-icon class="material-icons-outlined">delete</mat-icon>
+    <span>{{ "COMPONENT.COMMON.OPTIONS.INSCRIPT" | translate }}</span>
+  </button>
+  <button
+    mat-menu-item
+    [disabled]="checkAuthor()"
+    [hidden]="checkAuthor()"
+    (click)="deleteEvent(event.id)"
+    [attr.aria-label]="'COMPONENT.COMMON.OPTIONS.DELETE' | translate"
+  >
+    <mat-icon class="material-icons-outlined">delete</mat-icon>
+    <span>{{ "COMPONENT.COMMON.OPTIONS.DELETE" | translate }}</span>
+  </button>
+  <button
+    mat-menu-item
+    [disabled]="!isMod()"
+    [hidden]="!isMod()"
+    (click)="showBanMenu()"
+    [attr.aria-label]="'COMPONENT.COMMON.OPTIONS.BAN' | translate"
+  >
+    <mat-icon class="material-icons-outlined">block</mat-icon>
+    <span>{{ 'COMPONENT.COMMON.OPTIONS.BAN' | translate }}</span>
+  </button>
+</mat-menu>

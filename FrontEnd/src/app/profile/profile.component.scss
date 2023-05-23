@@ -1,0 +1,63 @@
+@import "../../css/variables.scss";
+
+.profile-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: left;
+
+  .card-icon {
+    mat-icon {
+      width: 64px;
+      height: 64px;
+      background-color: #efefef;
+      border-radius: 50px;
+      align-items: center;
+      justify-content: center;
+      display: flex;
+      font-size: 40px;
+    }
+  }
+
+  .user-info {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    width: 100%;
+    margin: 24px 24px 0 0;
+
+    h2 {
+      font-family: "Roboto-Medium", sans-serif;
+      color: rgba(0, 0, 0, 0.87);
+      margin: 0px;
+    }
+
+    mat-icon {
+      color: rgb(0, 0, 0, 0.54);
+      margin-right: 24px;
+    }
+  }
+
+  mat-form-field {
+    min-width: auto;
+  }
+
+  .mat-form-field-wrapper {
+    padding-bottom: 0px;
+  }
+  .mat-form-field-appearance-fill .mat-form-field-flex {
+    min-width: 244px;
+  }
+
+  &.mobile-theme{
+    justify-content: center;
+
+    .user-info {
+      justify-content: center;
+    }
+  }
+}
+
+mat-dialog-actions {
+  padding-top: 24px;
+  gap: 10px;
+}

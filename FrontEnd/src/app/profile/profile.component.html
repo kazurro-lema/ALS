@@ -1,0 +1,63 @@
+<div fxLayout="row" class="process-detail card-height-limit">
+  <div class="detail-container" fxLayout="column">
+    <div class="inside-container" cdkScrollable>
+      <div class="white-background" fxLayout="column">
+
+          <form [formGroup]="userForm" (submit)="updateUser()" *ngIf="userForm">
+            <div class="form-container">
+              <mat-dialog-content>
+
+                <div class="profile-container" [ngClass]="classResolution">
+                  <div class="card-icon">
+                    <mat-icon>{{ "person" }}</mat-icon>
+                  </div>
+
+                  <div class="user-info">
+                    <!--<h2> {{ user.username | titlecase }} </h2>-->
+                    <h2> {{ user.name | titlecase }} </h2>
+                  </div>
+
+                  <div class="user-info">
+                    <mat-icon class="material-icons-outlined">email_black</mat-icon>
+                    <mat-form-field appearance="fill">
+                      <mat-label>{{ 'COMPONENT.USER.EMAIL' | translate }}</mat-label>
+                      <input matInput formControlName="email" type="text"/>
+                    </mat-form-field>
+                  </div>
+
+                  <div class="user-info">
+                    <mat-icon class="material-icons-outlined">key</mat-icon>
+                    <mat-form-field appearance="fill">
+                      <mat-label>{{ 'COMPONENT.USER.PASSWORD' | translate }}</mat-label>
+                      <input matInput formControlName="password" [type]="hide ? 'password' : 'text'"/>
+                      <button mat-icon-button matSuffix type='button' (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                      </button>
+                    </mat-form-field>
+                  </div>
+                </div>
+
+                <mat-dialog-actions fxLayoutAlign="end center">
+                  <button mat-stroked-button type="button" (click)="deleteUser()" color="primary">
+                    {{ "COMPONENT.COMMON.BUTTON.DELETE" | translate }}
+                  </button>
+                  <button mat-stroked-button type="button" (click)="setEditMode()" color="primary">
+                    {{ "COMPONENT.COMMON.BUTTON.EDIT" | translate }}
+                  </button>
+                  <button
+                    mat-stroked-button
+                    color="primary"
+                    type="submit"
+                    [disabled]="!userForm.valid || !editMode"
+                  >
+                    {{ "COMPONENT.COMMON.SAVE" | translate }}
+                  </button>
+                </mat-dialog-actions>
+              </mat-dialog-content>
+            </div>
+          </form>
+
+      </div>
+    </div>
+  </div>
+</div>
