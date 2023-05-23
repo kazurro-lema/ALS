@@ -14,6 +14,7 @@ CORS(app)
 
 # Importar los blueprints y registrarlos en la aplicación
 from app.routes.users import users_bp
+from app.routes.events import events_bp
 
 app.register_blueprint(users_bp, url_prefix='/api')
-
+app.register_blueprint(events_bp, url_prefix='/api')
